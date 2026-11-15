@@ -232,7 +232,9 @@ def main():
     products = json.loads((ROOT / "products.json").read_text())
     day = a.day if a.day is not None else today_index(cfg)
     if day < 0 or day >= cfg["total_days"]:
-        sys.exit(f"day {day} is outside the {cfg['total_days']}-day run")
+        print(f"day {day} is outside the {cfg['total_days']}-day run, nothing to post")
+        Path(os.environ.get("GITHUB_OUTPUT", os.devnull)).open("a").write("skip=yes\n")
+        return
     OUT.mkdir(exist_ok=True)
     for old in OUT.glob("*"):
         old.unlink()
