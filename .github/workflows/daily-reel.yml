@@ -39,6 +39,9 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg libraqm0
           pip install -q -r requirements.txt
       - name: Make the reel
+        timeout-minutes: 15
+        env:
+          PYTHONUNBUFFERED: "1"
         run: python scripts/make_reel.py ${{ inputs.day && format('--day {0}', inputs.day) || '' }}
       - name: Post to Instagram and Facebook
         if: steps.ready.outputs.go == 'yes'

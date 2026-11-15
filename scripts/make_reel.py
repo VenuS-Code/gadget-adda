@@ -19,7 +19,8 @@ IST = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
 
 
 def run(cmd):
-    r = subprocess.run(cmd, capture_output=True, text=True)
+    print("  ffmpeg/ffprobe:", Path(str(cmd[-1])).name, flush=True)
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
     if r.returncode != 0:
         sys.exit(f"command failed: {' '.join(map(str, cmd))[:300]}\n{r.stderr[-1500:]}")
     return r.stdout
@@ -62,6 +63,7 @@ def script_lines(p, template):
 
 async def tts(text, path, cfg):
     for attempt in range(4):
+        print("  voice:", path.name, "try", attempt + 1, flush=True)
         try:
             await edge_tts.Communicate(text, cfg["voice"], rate=cfg["voice_rate"]).save(str(path))
             if path.stat().st_size > 1000:
