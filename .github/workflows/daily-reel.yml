@@ -20,7 +20,7 @@ jobs:
       FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
       PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
     steps:
-      - name: Stop early until accounts are connected
+      - name: Check that accounts are connected
         id: ready
         run: |
           if [ -z "$META_TOKEN" ]; then
@@ -30,19 +30,15 @@ jobs:
             echo "go=yes" >> "$GITHUB_OUTPUT"
           fi
       - uses: actions/checkout@v4
-        if: steps.ready.outputs.go == 'yes'
       - uses: actions/setup-python@v5
-        if: steps.ready.outputs.go == 'yes'
         with:
           python-version: "3.12"
           cache: pip
       - name: Install tools
-        if: steps.ready.outputs.go == 'yes'
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg libraqm0
           pip install -q -r requirements.txt
       - name: Make the reel
-        if: steps.ready.outputs.go == 'yes'
         run: python scripts/make_reel.py ${{ inputs.day && format('--day {0}', inputs.day) || '' }}
       - name: Post to Instagram and Facebook
         if: steps.ready.outputs.go == 'yes'
@@ -55,7 +51,7 @@ jobs:
           git add posted.json 2>/dev/null || true
           git diff --cached --quiet || (git commit -q -m "log: posted reel" && git push -q)
       - name: Keep a copy of the reel
-        if: always() && steps.ready.outputs.go == 'yes'
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: reel
