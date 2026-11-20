@@ -1,4 +1,4 @@
-# घर की खोज: your one-time setup (about 40 minutes)
+# गैजेट अड्डा: your one-time setup (about 40 minutes)
 
 Everything else is already built and running on GitHub's free servers. Your laptop can stay off.
 These steps need your own logins, so only you can do them. Do them in this order.
@@ -7,17 +7,17 @@ These steps need your own logins, so only you can do them. Do them in this order
 
 1. Instagram → your profile → ☰ → **Account type and tools** → **Switch to professional account** → pick **Creator**.
 2. Profile → ☰ → **Accounts Centre** → **Accounts** → add your **Facebook Page**, so the two are linked.
-3. Set the name to **घर की खोज | Useful Home Finds**.
+3. Set the name to **गैजेट अड्डा | Tech & Gadgets**.
 4. Bio (copy this):
    ```
-   घर और किचन के काम के सामान 🏠
+   स्टूडेंट्स और ऑफिस वालों के काम के गैजेट्स ⚡
    रील में दिखा नंबर 👇 लिंक पर डालो
    ```
-5. Link in bio: `https://venus-code.github.io/ghar-ki-khoj/`
+5. Link in bio: `https://venus-code.github.io/gadget-adda/`
 
 ## 2. Free real video clips: Pexels key (3 min)
 
-Without this, every reel uses a plain coloured background. With it, each reel shows real kitchen and home footage, which gets far more views.
+Without this, every reel uses a plain coloured background. With it, each reel shows real gadget, desk and tech footage, which gets far more views.
 
 1. Sign up at https://www.pexels.com/api/ and copy your API key.
 2. In the Terminal (in this folder), run the command below and paste the key when it asks:
@@ -43,7 +43,7 @@ Without this, every reel uses a plain coloured background. With it, each reel sh
 ## 4. Amazon Associates: so you get paid (10 min)
 
 1. Sign up at https://affiliate-program.amazon.in
-   Website: `https://venus-code.github.io/ghar-ki-khoj/`. Also add your Instagram profile link.
+   Website: `https://venus-code.github.io/gadget-adda/`. Also add your Instagram profile link.
 2. Copy your **tracking ID** (it looks like `yourname-21`).
 3. Send the tracking ID to Claude, or put it in `config.json` under `"amazon_tag"` and run:
    ```bash
@@ -53,7 +53,7 @@ Without this, every reel uses a plain coloured background. With it, each reel sh
 
 ## 5. Test it once
 
-GitHub → your repo **ghar-ki-khoj** → **Actions** → **Daily reel** → **Run workflow**. Check that the reel appears on Instagram and Facebook within about 5 minutes.
+GitHub → your repo **gadget-adda** → **Actions** → **Daily reel** → **Run workflow**. Check that the reel appears on Instagram and Facebook within about 5 minutes.
 
 ---
 

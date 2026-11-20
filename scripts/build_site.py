@@ -21,7 +21,7 @@ page = f"""<!doctype html>
 <html lang="hi"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(cfg['page_name'])} | रील में दिखी हर चीज़ का लिंक</title>
-<meta name="description" content="रील में दिखे घर और किचन के काम के सामान के लिंक, फाइंड नंबर से ढूँढें।">
+<meta name="description" content="रील में दिखे टेक गैजेट्स के लिंक, फाइंड नंबर से ढूँढें।">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
